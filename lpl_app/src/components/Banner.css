@@ -1,11 +1,8 @@
 .banner {
-    width: 100%;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
+  padding: 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
   .banner-content {
     text-align: center;
     margin-bottom: 30px;
@@ -15,34 +12,35 @@
     text-align: center;
     margin-top: 20px;
   }
-  
   .stock-cards {
     display: flex;
     gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px;
+  }
+  .stock-cards::-webkit-scrollbar {
+    height: 8px;
+  }
+  .stock-cards::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
   }
   
+  .stock-cards::-webkit-scrollbar-track {
+    background-color: #f0f0f0;
+  }
+
   /* Card styles from Uiverse.io */
   .card {
-    --bg-card: #27272a;
-    --primary: #6d28d9;
-    --primary-800: #4c1d95;
-    --primary-shadow: #2e1065;
-    --light: #d9d9d9;
-    --zinc-800: #18181b;
-    --bg-linear: linear-gradient(0deg, var(--primary) 50%, var(--light) 125%);
-  
-    position: relative;
+
+
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
   
-    padding: 1rem;
-    width: 14rem;
     background-color: var(--bg-card);
-  
-    border-radius: 1rem;
+    flex: 0 0 auto; /* Prevent shrinking or stretching */
   }
   
   .image_container {
@@ -89,5 +87,26 @@
     border-radius: 0.5rem;
     overflow: hidden;
     position: relative;
+  }
+  .stock-cards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: nowrap; /* Ensure all cards stay on one line */
+    overflow-x: auto; /* Add horizontal scroll for overflow */
+    padding: 10px; /* Optional: Add padding for better spacing */
+  }
+  
+  .stock-cards::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .stock-cards::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+  }
+  
+  .stock-cards::-webkit-scrollbar-track {
+    background-color: #f0f0f0;
   }
   
