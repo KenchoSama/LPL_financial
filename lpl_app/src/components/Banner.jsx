@@ -1,9 +1,8 @@
 import React from "react";
 import "./Banner.css";
-import StockCard from "./Cards"; // Import the StockCard component
+import Carousel from "./Carousel";
 
 const Banner = () => {
-  // Stock data
   const stockData = [
     {
       logo: "https://cdn.pixabay.com/photo/2017/01/06/19/15/apple-1952811_1280.jpg",
@@ -53,19 +52,10 @@ const Banner = () => {
   ];
 
   return (
-    <section className="banner">
-      <h2 className="stock-title">Top Stock Picks</h2>
-      <div className="stock-cards">
-        {stockData.map((stock, index) => (
-          <StockCard
-            key={index}
-            logo={stock.logo}
-            title={stock.title}
-            details={stock.details}
-          />
-        ))}
-      </div>
-    </section>
+    <div className="banner">
+      <h2 className="banner-title">Top Stock Picks</h2>
+      <Carousel stocks={stockData} />
+    </div>
   );
 };
 
