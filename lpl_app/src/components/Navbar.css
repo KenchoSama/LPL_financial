@@ -1,0 +1,32 @@
+.navbar {
+    background-color: #CC7000; /* Darker orange */
+    color: white;
+    padding: 20px 20px;
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between logo and links */
+  }
+  
+  .navbar-logo img {
+    height: 40px; /* Adjust the height of the logo */
+    width: auto; /* Maintain aspect ratio */
+  }
+  
+  .navbar-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .navbar-links a:hover {
+    text-decoration: underline;
+  }
+  
