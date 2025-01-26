@@ -13,9 +13,11 @@ const Carousel = () => {
 
   // Handle data fetched from the API
   const handleDataFetched = (data) => {
+    console.log("Fetched Data:", data); // Debugging
     const updatedStockData = data.map((stock) => {
-      const price = parseFloat(stock.details.find((d) => d.label === "Price")?.value || "0");
-      const openPrice = parseFloat(stock.details.find((d) => d.label === "Open")?.value || "0");
+      const details = Array.isArray(stock.details) ? stock.details : [];
+      const price = parseFloat(details.find((d) => d.label === "Price")?.value || "0");
+      const openPrice = parseFloat(details.find((d) => d.label === "Open")?.value || "0");
       const percentageChange =
         price && openPrice
           ? (((price - openPrice) / openPrice) * 100).toFixed(2)
@@ -39,11 +41,11 @@ const Carousel = () => {
   // Map stock symbol to logo URL
   const getStockLogo = (symbol) => {
     const logos = {
-      AAPL: "/apple.png",
-      TSLA: "/tesla.jpg",
+      AAPL: "apple.png",
+      TSLA: "teslaa.png",
       AMZN: "/amazon.png",
-      MSFT: "/MSFT.png",
-      GOOGL: "/google.jpg",
+      MSFT: "MSFT.png",
+      GOOGL: "google.jpg",
     };
 
     return logos[symbol];
