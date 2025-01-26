@@ -1,68 +1,66 @@
 import React, { useState } from "react";
 import "./Carousel.css";
 import StockCard from "./Cards";
+import StockDataFetcher from "./StockDataFetcher";
 
 const Carousel = () => {
+  const [stockData, setStockData] = useState([]); // Store all fetched stock data
   const [activeIndex, setActiveIndex] = useState(0); // Track the center card
   const [expandedStock, setExpandedStock] = useState(null); // Track the expanded stock
 
-  const stockData = [
-    {
-      logo: "https://cdn.pixabay.com/photo/2017/01/06/19/15/apple-1952811_1280.jpg",
-      title: "AAPL",
-      details: [
-        { value: "$150", label: "Price" },
-        { value: "+1.5%", label: "Change" },
-        { value: "$145", label: "Open Price" },
-      ],
-      description:
-        "Apple Inc. is an American multinational technology company specializing in consumer electronics, software, and online services.",
-    },
-    {
-      logo: "https://cdn.pixabay.com/photo/2021/01/11/11/44/tesla-5905753_1280.jpg",
-      title: "TSLA",
-      details: [
-        { value: "$700", label: "Price" },
-        { value: "-2.3%", label: "Change" },
-        { value: "Buy", label: "Rating" },
-      ],
-      description:
-        "Tesla, Inc. designs, manufactures, and sells electric vehicles, energy storage products, and solar panels.",
-    },
-    {
-      logo: "https://cdn.pixabay.com/photo/2017/05/30/10/33/amazon-2352952_1280.png",
-      title: "AMZN",
-      details: [
-        { value: "$3200", label: "Price" },
-        { value: "+0.8%", label: "Change" },
-        { value: "Hold", label: "Rating" },
-      ],
-      description:
-        "Amazon.com, Inc. is an American multinational technology company focusing on e-commerce, cloud computing, and AI.",
-    },
-    {
-      logo: "https://cdn.pixabay.com/photo/2014/07/08/11/28/ms-office-386521_1280.jpg",
-      title: "MSFT",
-      details: [
-        { value: "$280", label: "Price" },
-        { value: "+0.4%", label: "Change" },
-        { value: "Strong Buy", label: "Rating" },
-      ],
-      description:
-        "Microsoft Corporation is a leading technology company focusing on software, hardware, and cloud computing solutions.",
-    },
-    {
-      logo: "https://cdn.pixabay.com/photo/2015/05/26/09/37/google-784222_1280.png",
-      title: "GOOGL",
-      details: [
-        { value: "$2700", label: "Price" },
-        { value: "-1.1%", label: "Change" },
-        { value: "Hold", label: "Rating" },
-      ],
-      description:
-        "Google LLC is a global technology company specializing in Internet-related services and products, including search and advertising.",
-    },
-  ];
+  // Stock symbols for the API
+  const symbols = ["AAPL", "TSLA", "AMZN", "MSFT", "GOOGL"];
+
+  // Handle data fetched from the API
+  const handleDataFetched = (data) => {
+    const updatedStockData = data.map((stock) => {
+      const price = parseFloat(stock.details.find((d) => d.label === "Price")?.value || "0");
+      const openPrice = parseFloat(stock.details.find((d) => d.label === "Open")?.value || "0");
+      const percentageChange =
+        price && openPrice
+          ? (((price - openPrice) / openPrice) * 100).toFixed(2)
+          : "N/A";
+
+      return {
+        logo: getStockLogo(stock.symbol), // Map symbol to logo
+        title: stock.title,
+        details: [
+          { label: "Price", value: `$${price}` },
+          { label: "Open Price", value: `$${openPrice}` },
+          { label: "Change", value: `${percentageChange}%` },
+        ],
+        description: getStockDescription(stock.symbol), // Map symbol to description
+      };
+    });
+
+    setStockData(updatedStockData);
+  };
+
+  // Map stock symbol to logo URL
+  const getStockLogo = (symbol) => {
+    const logos = {
+      AAPL: "/apple.png",
+      TSLA: "/tesla.jpg",
+      AMZN: "/amazon.png",
+      MSFT: "/MSFT.png",
+      GOOGL: "/google.jpg",
+    };
+
+    return logos[symbol];
+  };
+
+  // Map stock symbol to description
+  const getStockDescription = (symbol) => {
+    const descriptions = {
+      AAPL: "Apple Inc. specializes in consumer electronics, software, and online services.",
+      TSLA: "Tesla, Inc. designs and manufactures electric vehicles and energy products.",
+      AMZN: "Amazon.com focuses on e-commerce, cloud computing, and AI.",
+      MSFT: "Microsoft Corporation develops software, hardware, and cloud computing solutions.",
+      GOOGL: "Google LLC provides Internet-related services and products, including search and advertising.",
+    };
+
+    return descriptions[symbol];
+  };
 
   // Dynamically calculate the position and transform styles for each card
   const getCardStyle = (index) => {
@@ -78,6 +76,9 @@ const Carousel = () => {
 
   return (
     <div className="carousel">
+      {/* Fetch stock data */}
+      <StockDataFetcher symbols={symbols} onDataFetched={handleDataFetched} />
+
       <div className="carousel-inner">
         {stockData.map((stock, index) => (
           <div

@@ -2,7 +2,6 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Carousel from "./components/Carousel";
-import StockDataFetcher from "./components/StockDataFetcher";
 import "./App.css";
 
 function App() {
@@ -16,8 +15,7 @@ function App() {
       
 
       {/* Stock Data Fetcher */}
-      <StockDataFetcher />
-      {/* Footer */}
+            {/* Footer */}
       <Footer />
     </div>
   );
