@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "./components/Navbar";
-import Banner from "./components/Banner";
 import Footer from "./components/Footer";
+import Carousel from "./components/Carousel";
 import "./App.css";
 
 function App() {
@@ -10,10 +10,8 @@ function App() {
       {/* Navbar */}
       <Navbar />
       
-      {/* Banner */}
-      <main className="main-content">
-        <Banner />
-      </main>
+      {/* Carousel */}
+        <Carousel />
       
       {/* Footer */}
       <Footer />

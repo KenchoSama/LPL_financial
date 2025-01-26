@@ -12,7 +12,9 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+.Carousel {
+  flex: 1; /* Allow the carousel to grow and push the footer down */
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -22,6 +24,10 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.Footer {
+  margin-top: auto; /* Push the footer to the bottom */
 }
 
 .App-link {
@@ -42,12 +48,3 @@ body, html {
   height: 100%; /* Ensure the body and HTML take up full height */
 }
 
-.App {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Full viewport height */
-}
-
-.main-content {
-  flex: 1; /* Push the footer to the bottom by expanding this area */
-}

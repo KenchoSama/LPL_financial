@@ -1,26 +1,28 @@
 .carousel {
     perspective: 1500px; /* Creates the 3D effect */
     width: 100%;
-    height: 1300px; /* Increase height for larger cards */
+    height: 800px; /* Increase height for larger cards */
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    margin-top: 100px; /* Adjust top margin */
+    margin-bottom: 150px; /* Adjust bottom margin */
   }
   
   .carousel-inner {
     position: relative;
     width: 100%;
-    height: 150%;
+    height: 120%;
     transform-style: preserve-3d; /* Enable 3D layout for child elements */
     transition: transform 0.6s ease; /* Smooth rotation */
   }
   
   .carousel-item {
     position: absolute;
-    top: 30%; /* Adjust top position */
-    left: 45%;
+    top: 25%; /* Adjust top position */
+    left: 42%;
     transform-origin: center;
     transition: transform 0.6s ease, opacity 0.6s ease;
     transform: translate(-50%, -50%);
@@ -101,4 +103,74 @@
   .row .item .regular-text {
     font-size: 12px;
   }
-  
+  /* Expanded Overlay */
+.expanded-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Dark overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it appears above all other content */
+}
+
+.expanded-content {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  width: 80%;
+  max-width: 800px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  animation: zoomIn 0.3s ease-in-out;
+}
+
+.expanded-content img.expanded-image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.expanded-content h2 {
+  font-size: 24px;
+  margin: 10px 0;
+  color: #333;
+}
+
+.expanded-content p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #666;
+}
+
+.close-button {
+  background: #ff5e5e;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.close-button:hover {
+  background: #e14a4a;
+}
+
+/* Modal Animation */
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
