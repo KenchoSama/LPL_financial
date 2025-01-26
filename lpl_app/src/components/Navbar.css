@@ -1,32 +1,61 @@
 .navbar {
-    background-color: #CC7000; /* Darker orange */
-    color: white;
-    padding: 20px 20px;
-    display: flex;
-    align-items: center; /* Center items vertically */
-    justify-content: space-between; /* Space between logo and links */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #002244;
+  color: white;
+  padding: 10px 20px;
+}
+
+.navbar-logo img {
+  height: 40px;
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  margin: 10px 0;
+  padding: 0;
+}
+
+.navbar-links li {
+  margin: 0 15px;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+  color: #00aaff;
+}
+
+.stock-ticker {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-top: 10px;
+  width: 100%;
+  background-color: #001122;
+  padding: 5px 0;
+  border-top: 1px solid #004488;
+}
+
+.ticker-item {
+  padding: 0 20px;
+  font-size: 14px;
+  animation: ticker 15s linear infinite;
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(100%);
   }
-  
-  .navbar-logo img {
-    height: 40px; /* Adjust the height of the logo */
-    width: auto; /* Maintain aspect ratio */
+  to {
+    transform: translateX(-100%);
   }
-  
-  .navbar-links {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .navbar-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .navbar-links a:hover {
-    text-decoration: underline;
-  }
-  
+}

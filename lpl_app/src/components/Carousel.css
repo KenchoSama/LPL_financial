@@ -22,7 +22,7 @@
   .carousel-item {
     position: absolute;
     top: 25%; /* Adjust top position */
-    left: 42%;
+    left: 44%;
     transform-origin: center;
     transition: transform 0.6s ease, opacity 0.6s ease;
     transform: translate(-50%, -50%);

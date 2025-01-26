@@ -1,35 +1,36 @@
 .footer {
-  background-color: #829beb; /* Example background color */
-  color: white;
+  background-color: #F7F1ED; /* Keep the background color */
+  color: #06163A;
   text-align: center;
   padding: 30px 10px; /* Existing padding */
   padding-top: 20px; /* Add padding to the top of the footer */
   font-size: 14px;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Add shadow to make footer stand out */
+  position: relative; /* Ensure the shadow appears correctly */
+  z-index: 1; /* Keep the footer above any background elements */
 }
 
-  
-  .footer-content {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .footer h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
-  
-  .footer p {
-    margin: 5px 0;
-    font-size: 1rem;
-  }
-  
-  .footer a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-  }
-  
-  .footer a:hover {
-    text-decoration: underline;
-  }
-  
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.footer p {
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+.footer a {
+  color: white; /* Ensure link color stands out */
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}

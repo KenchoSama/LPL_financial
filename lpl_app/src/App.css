@@ -12,9 +12,11 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
 .Carousel {
   flex: 1; /* Allow the carousel to grow and push the footer down */
 }
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -42,9 +44,12 @@
     transform: rotate(360deg);
   }
 }
+
+/* Update body and html styles to use the background color */
 body, html {
   margin: 0;
   padding: 0;
   height: 100%; /* Ensure the body and HTML take up full height */
+  background-color: #F7F1ED; /* Set the background color */
+  font-family: Arial, sans-serif; /* Add a clean font for readability */
 }
-
