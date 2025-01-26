@@ -9,7 +9,7 @@ const StockDataFetcher = () => {
   const fetchStockData = async () => {
     try {
       const response = await fetch(
-        "http://localhost:8000/"
+        "https://l8wn9lk110.execute-api.us-west-2.amazonaws.com/dev1/getStockPrice?symbol=AAPL"
       );
       
       if (!response.ok) {
